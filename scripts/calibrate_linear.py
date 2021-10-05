@@ -18,7 +18,7 @@ class CalibrateLinear():
         # Set the distance to travel
         self.test_distance = 1.0 # meters
         self.speed = 0.15 # meters per second
-        self.tolerance = 0.1 # meters
+        self.tolerance = 0.03 # meters
         self.odom_linear_scale_correction = 1.0
         self.start_test = True
 
@@ -68,12 +68,13 @@ class CalibrateLinear():
                 distance *= self.odom_linear_scale_correction
                 # How close are we?
                 error =  distance - self.test_distance
+                rospy.loginfo(error)
 
                 # Are we close enough?
                 if not self.start_test or abs(error) <  self.tolerance:
                     self.start_test = False
                     params = False
-                    rospy.loginfo(params)
+                    rospy.loginfo("Calibrate done!")
                 else:
                     # If not, move in the appropriate direction
                     move_cmd.linear.x = copysign(self.speed, -1 * error)

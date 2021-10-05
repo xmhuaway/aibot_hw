@@ -1,7 +1,7 @@
 <launch>
 
     <!-- Robot Base Aibot Version 1 Description -->
-    <param name="robot_description" command="$(find xacro)/xacro.py $(find aibot_description)/urdf/chassis/mini/aibot_mini.urdf.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find aibot_description)/urdf/chassis/a1/aibot_a1.urdf.xacro" />
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
         <param name="publish_frequency" type="double" value="100.0" />
     </node>
@@ -52,5 +52,8 @@
         <param name="samp_rate"    type="int"    value="3"/>
         <param name="isSingleChannel"    type="bool"   value="true"/>
     </node>
+
+    <!-- ds4 -->
+    <include file="$(find ds4_driver)/launch/ds4_twist.launch"/>
 
 </launch>
