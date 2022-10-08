@@ -78,9 +78,7 @@
   <exec_depend>map_server</exec_depend>  
   <exec_depend>move_base</exec_depend>
   <exec_depend>amcl</exec_depend>
-  <exec_depend>imu-filter-madgwick</exec_depend>
   <exec_depend>imu_calib</exec_depend>
-  <exec_depend>lino_pid</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
